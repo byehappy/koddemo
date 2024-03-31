@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      width:{
+        "big":"64rem"
+      },
+      height:{
+        "big":"45rem"
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

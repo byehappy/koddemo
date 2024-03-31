@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "login": "name",
+      "password": "qwerty",
+      "fio": "SecondName Name FatherName",
+      "phone_number": "+79996665522",
+      "email": "test@gmail.com",
+      "role": "user"
+    }
+  ],
+  "post": [
+    {
+      "id": "1",
+      "user_id": "1",
+      "number_auto": "123asd123",
+      "descr": "description",
+      "status": "новое"
+    }
+  ]
+}
