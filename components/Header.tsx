@@ -12,9 +12,10 @@ const Header = () => {
                 </h1>
                 <nav>
                     <ul className="flex space-x-4">
-                        {session.status == "authenticated" && (
+                        {session.status == "authenticated" && (<div className={"flex justify-between w-52"}>
+                            <Link href={'/statemate'}>Мои заявления</Link>
                             <button onClick={() => signOut()}>Выйти</button>
-
+                            </div>
                         )}
                         {session.status === "loading" && (<>Проверка авторизации</>)}
                         {session.status === "unauthenticated" && (<>

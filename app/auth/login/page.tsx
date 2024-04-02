@@ -1,18 +1,15 @@
-
-import type { NextPage } from 'next';
+import type {NextPage} from 'next';
 import {Metadata} from "next";
-import LoginForm from "@/components/auth/loginForm";
+import LoginForm from "@/components/forms/LoginForm";
 
 export const metadata: Metadata = {
     title: "Вход",
 };
-const Page:NextPage = () => {
-
-
+const Page: NextPage = () => {
 
     return (
         <>
-           <LoginForm/>
+            <LoginForm/>
         </>
     )
 }

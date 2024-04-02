@@ -40,7 +40,7 @@ export default function LoginForm() {
         }
     )
     return (
-        <div className={"my-8 mx-auto flex w-big h-big justify-center items-center"}>
+        <div className={"my-8 mx-auto flex h-big justify-center items-center"}>
             <div className="w-full max-w-md ">
                 <form className="bg-white drop-shadow-2xl rounded px-8 pt-6 pb-8 mb-4" onSubmit={formik.handleSubmit}>
                     <div className={"w-full flex justify-center mb-3"}>
