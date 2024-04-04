@@ -9,6 +9,7 @@ type Props = {
 
 export const Providers = ({ children }: Props) => {
     return <SessionProvider>
-        <Header/>{children}
+        <Header/>
+        {children}
     </SessionProvider>;
 };

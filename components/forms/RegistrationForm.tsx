@@ -57,10 +57,10 @@ export default function RegistrationForm(){
             },
             validationSchema: Yup.object().shape({
                 login: Yup.string().required("Введите логин!"),
-                password: Yup.string().min(6,"Пароль слишком короткий").required("Пароль обязателен!"),
-                email: Yup.string().email().required("Введите почту"),
+                password: Yup.string().min(4,"Пароль слишком короткий").required("Пароль обязателен!"),
+                email: Yup.string().email("Неправильная почта").required("Введите почту"),
                 phone_number: Yup.string().required("Введите номер телефона"),
-                fio:Yup.string().required("Введите свое ФИО"),
+                fio:Yup.string().matches(/^[а-яА-ЯёЁ\s]+$/i,"Только на кириллице").required("Введите свое ФИО"),
                 role: Yup.string()
             })
         }
@@ -152,7 +152,7 @@ export default function RegistrationForm(){
 
                     <div className={"w-full flex justify-center"}>
                         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-3">
-                            Отправить
+                            Зарегистрироваться
                         </button>
                     </div>
                 </form>

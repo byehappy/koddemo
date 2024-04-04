@@ -8,50 +8,38 @@
       "phone_number": "+79996665522",
       "email": "test@gmail.com",
       "role": "user"
+    },
+    {
+      "id": "2",
+      "login": "copp",
+      "password": "password",
+      "fio": "SecondName Name FatherName",
+      "phone_number": "+79996665522",
+      "email": "admin@gmail.com",
+      "role": "admin"
     }
   ],
   "post": [
     {
       "id": "1",
-      "user_id": "1",
-      "number_auto": "123asd123",
-      "descr": "description",
-      "status": "новое"
-    },
-    {
-      "id": "2a41",
       "number_auto": "a136bv",
-      "descr": "я дебил",
+      "descr": "asdzxc",
       "user_id": "1",
-      "status": "новое"
+      "status": "подтверждено"
     },
     {
-      "id": "ffa2",
-      "number_auto": "a136bv",
-      "descr": "я дебил",
-      "user_id": "1",
-      "status": "новое"
-    },
-    {
-      "id": "b896",
-      "number_auto": "a136bv",
-      "descr": "asd",
-      "user_id": "1",
-      "status": "новое"
-    },
-    {
-      "id": "b89e",
+      "id": "2",
       "number_auto": "asdasd",
       "descr": "asdasd",
       "user_id": "1",
-      "status": "новое"
+      "status": "отклонено"
     },
     {
-      "id": "2a3f",
+      "id": "3",
       "number_auto": "asdasd",
-      "descr": "asdasd",
+      "descr": "asdasdasd",
       "user_id": "1",
-      "status": "новое"
+      "status": "подтверждено"
     }
   ]
 }

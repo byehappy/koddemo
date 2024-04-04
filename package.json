@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server --watch db.json --port 3001"
+    "server": "json-server --watch db.json --port 3001 --quiet"
   },
   "dependencies": {
     "formik": "^2.4.5",

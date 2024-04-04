@@ -2,28 +2,47 @@
 import React from 'react';
 import Link from "next/link";
 import {signOut, useSession} from "next-auth/react";
+import {Role} from "@/interface/user";
 
 const Header = () => {
-    const session = useSession();
+    const {data: session, status} = useSession();
+
+    if (status === "loading") {
+        return <header className="bg-gray-800 text-white py-4">
+            <div className="container mx-auto flex justify-between items-center">
+                <h1 className="text-2xl font-bold"><Link href={'/'} className="hover:text-gray-300">Нарушения.Нет</Link>
+                </h1>
+                    <div className="flex space-x-4">
+                        <div>Проверка авторизации...</div>
+                    </div>
+            </div>
+        </header>;
+    }
+
     return (
         <header className="bg-gray-800 text-white py-4">
             <div className="container mx-auto flex justify-between items-center">
                 <h1 className="text-2xl font-bold"><Link href={'/'} className="hover:text-gray-300">Нарушения.Нет</Link>
                 </h1>
-                <nav>
-                    <ul className="flex space-x-4">
-                        {session.status == "authenticated" && (<div className={"flex justify-between w-52"}>
-                            <Link href={'/statemate'}>Мои заявления</Link>
-                            <button onClick={() => signOut()}>Выйти</button>
+                    <div className="flex space-x-4">
+                        {session && (
+                            <div className={"flex gap-8 w-auto"}>
+                                {session.user.role == Role.admin && (
+                                    <Link href={"/admin-panel"}>Панель администратора</Link>
+                                )}
+                                {session.user.role == Role.user && (
+                                    <Link href={'/statemate'}>Мои заявления</Link>
+                                )}
+                                <button onClick={() => signOut()}>Выйти</button>
                             </div>
                         )}
-                        {session.status === "loading" && (<>Проверка авторизации</>)}
-                        {session.status === "unauthenticated" && (<>
-                            <li><a href="/auth/registration" className="hover:text-gray-300">Регистрация</a></li>
-                            <li><a href="/auth/login" className="hover:text-gray-300">Авторизация</a></li>
-                        </>)}
-                    </ul>
-                </nav>
+                        {!session && (
+                            <>
+                                <a href="/auth/registration" className="hover:text-gray-300">Регистрация</a>
+                                <a href="/auth/login" className="hover:text-gray-300">Авторизация</a>
+                            </>
+                        )}
+                    </div>
             </div>
         </header>
     );

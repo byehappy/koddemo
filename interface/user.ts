@@ -5,5 +5,8 @@ export interface User {
     fio: string;
     phone_number: string;
     email: string;
-    rules: boolean;
+    role: Role;
+}
+export enum Role {
+    "user"="user","admin"="admin"
 }

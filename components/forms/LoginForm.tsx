@@ -35,7 +35,7 @@ export default function LoginForm() {
             },
             validationSchema: Yup.object().shape({
                 login: Yup.string().required("Введите логин!"),
-                password: Yup.string().min(6, "Пароль слишком короткий").required("Пароль обязателен!")
+                password: Yup.string().min(4, "Пароль слишком короткий").required("Пароль обязателен!")
             })
         }
     )

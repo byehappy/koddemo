@@ -6,6 +6,6 @@ export interface Post {
     status: Status
 }
 
-enum Status {
-    "новое", "подтверждено", "отклонено"
+export enum Status {
+    "новое"="новое", "подтверждено"="подтверждено", "отклонено"="отклонено"
 }

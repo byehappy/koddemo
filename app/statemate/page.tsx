@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     title: "Мои заявления",
 };
 export default async function Page() {
+    revalidateTag("statemates")
     const session = await getServerSession(authOptions)
     if (!session) {
         redirect("/")
     }
     const statemates = await getStatemates(session!.user.id)
-    revalidateTag("statemates")
     return (
         <div className={"mt-10 mx-20 w-auto"}>
             <div className={"w-auto flex justify-end"}>
