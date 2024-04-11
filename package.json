@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server --watch db.json --port 3001 --quiet"
+    "server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
     "formik": "^2.4.5",
