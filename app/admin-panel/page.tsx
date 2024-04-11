@@ -27,10 +27,11 @@ const Page: NextPage = async () => {
             <ul className={'flex flex-col gap-10'}>
                 {statemates.map((item) => (
                     <li className={'list-decimal text-2xl'} key={item.id}>
-                        <div className={'flex flex-row justify-between h-10'}>
-                            Номер авто: {item.number_auto} Описание: {item.descr} Статус: {item.status} ФИО: {item.userFio}
+                        <div className={'flex flex-row justify-between h-18 border-2 rounded-3xl pl-5'}>
+                            Номер авто: {item.number_auto} Описание: {item.descr} ФИО: {item.userFio} <br/>
+                            Статус: {item.status}
                             {item.status === Status.новое && (
-                                <div className={'flex gap-5'}>
+                                <div className={'flex gap-5 h-92 items-center'}>
                                     <ButtonConfirm item_id={item.id} />
                                     <ButtonDecline item_id={item.id} />
                                 </div>

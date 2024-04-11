@@ -15,6 +15,7 @@ export default async function Page() {
     if (!session) {
         redirect("/")
     }
+
     const statemates = await getStatemates(session!.user.id)
     return (
         <div className={"mt-10 mx-20 w-auto"}>
@@ -24,13 +25,13 @@ export default async function Page() {
                     Создать новое заявление
                 </Link>
             </div>
-            <ul className={"flex flex-col gap-10"}>
+            <ul className={"grid grid-cols-3 gap-10"}>
                 {statemates.map((item) => {
                     return <div key={item.id}>
 
-                        <li className={"list-decimal text-2xl"}>
+                        <li className={"list-decimal text-2xl border-2 rounded-3xl py-1 pl-3"}>
                             Номер авто: {item.number_auto}<br/>
-                            Описание: {item.descr}<br/>
+                            <div className={"overflow-hidden"}>Описание: {item.descr}<br/></div>
                             Статус: {item.status}
                         </li>
                     </div>
@@ -41,6 +42,6 @@ export default async function Page() {
 }
 
 async function getStatemates(userid: number): Promise<Post[]> {
-    const res = await fetch(`http://localhost:3001/post?user_id=${userid}`,{next:{tags:["statemates"]}})
+    const res = await fetch(`http://localhost:3001/post?user_id=${userid}`, {next: {tags: ["statemates"]}})
     return res.json()
 }

@@ -2,6 +2,10 @@
 
 import { revalidateTag } from "next/cache";
 
-export default async function action(item_id:string) {
+export  async function action(item_id:string) {
     revalidateTag(item_id);
+}
+
+export  async function actionStatemates() {
+    revalidateTag("statemates")
 }

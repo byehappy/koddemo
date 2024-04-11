@@ -3,6 +3,8 @@ import {useFormik} from "formik";
 import {useRouter} from "next/navigation";
 import * as Yup from "yup";
 import {useState} from "react";
+import {revalidateTag} from "next/cache";
+import {actionStatemates} from "@/components/buttons/actions";
 
 export default function StatemateCreateForm ({user_id}: { user_id: number }) {
     const [serverError, setServerError] = useState("");
@@ -25,7 +27,10 @@ export default function StatemateCreateForm ({user_id}: { user_id: number }) {
                     user_id,
                     status:"новое"
                 })
-            }).catch((e)=>setServerError(e)).then(()=>router.push("/statemate"))
+            }).catch((e)=>setServerError(e)).then(()=>(
+                actionStatemates(),
+                router.push("/statemate")
+            ))
         },
         validationSchema: Yup.object().shape({
             number_auto: Yup.string().required("Введите номер машины!"),
